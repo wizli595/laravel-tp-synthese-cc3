@@ -15,7 +15,7 @@ return new class extends Migration
     {
         // Schema::disableForeignKeyConstraints();
         Schema::create('chambres', function (Blueprint $table) {
-            $table->increments('numchambre');
+            $table->id('numchambre');
             $table->string('telephone');
             // ############################# Scenario 1 ###############################
             $table->foreignId('numhotel')->constrained('hotels', 'numhotel')->onDelete('cascade')->onUpdate('cascade');

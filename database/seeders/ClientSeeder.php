@@ -18,11 +18,11 @@ class ClientSeeder extends Seeder
         $clients = Client::factory()->count(5)->create();
         foreach ($clients as $client) {
             $comments = Commentaire::factory(2)->create([
-                'commentable_id' => $client->id,
+                'commentable_id' => $client->codeClient,
                 'commentable_type' => Client::class,
             ]);
             $likes = Like::factory(2)->create([
-                'likeable_id' => $client->id,
+                'likeable_id' => $client->codeClient,
                 'likeable_type' => Client::class,
             ]);
             $client->commentaires()->saveMany($comments);
